@@ -814,6 +814,7 @@ public final class StandardWrapper
     public synchronized Servlet loadServlet() throws ServletException {
 
         // Nothing to do if we already have an instance or an instance pool
+        // 检查当前的StandardWrapper类是否表示的是一个STM servlt类，且instance不为null
         if (!singleThreadModel && (instance != null))
             return instance;
 

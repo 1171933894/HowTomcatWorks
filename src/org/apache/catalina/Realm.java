@@ -81,6 +81,9 @@ import java.security.cert.X509Certificate;
  * @version $Revision: 1.4 $ $Date: 2001/07/30 20:04:04 $
  */
 
+/**
+ * Realm接口的getContainer方法和setContainer方法用来将Realm实例与一个Context实例相关联。
+ */
 public interface Realm {
 
 

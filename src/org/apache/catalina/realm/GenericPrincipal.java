@@ -183,6 +183,7 @@ public class GenericPrincipal implements Principal {
 
         if (role == null)
             return (false);
+        // 使用二分查找
         return (Arrays.binarySearch(roles, role) >= 0);
 
     }

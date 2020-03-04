@@ -75,7 +75,7 @@ package org.apache.catalina;
  * @author Craig R. McClanahan
  * @version $Revision: 1.3 $ $Date: 2001/07/22 20:13:30 $
  */
-
+// Authenticator接口本身并没有声明方法，只是起到了一个标记作用。
 public interface Authenticator {
 
 

@@ -43,7 +43,7 @@ public class SimpleContextConfig implements LifecycleListener {
       Valve valves[] = pipeline.getValves();
       for (int i = 0; i < valves.length; i++) {
         if (valves[i] instanceof Authenticator)
-        return;
+        return;// Context实例只能有一个验证器
       }
     }
     else { // no Pipeline, cannot install authenticator valve
