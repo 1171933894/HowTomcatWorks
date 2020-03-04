@@ -81,6 +81,7 @@ public interface LifecycleListener {
      *
      * @param event LifecycleEvent that has occurred
      */
+    // 当某个事件监听器听到相关发生时，会调用该方法
     public void lifecycleEvent(LifecycleEvent event);
 
 

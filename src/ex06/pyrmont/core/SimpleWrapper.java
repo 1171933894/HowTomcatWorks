@@ -375,6 +375,7 @@ public class SimpleWrapper implements Wrapper, Pipeline, Lifecycle {
     System.out.println("Stopping wrapper " + name);
     // Shut down our servlet instance (if it has been initialized)
     try {
+      // 调用servlet的destroy方法
       instance.destroy();
     }
     catch (Throwable t) {

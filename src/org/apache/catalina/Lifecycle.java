@@ -75,6 +75,12 @@ package org.apache.catalina;
  * @version $Revision: 1.6 $ $Date: 2002/06/09 02:10:50 $
  */
 
+/**
+ * Lifecycle接口中最重要的是start()方法和stop()方法。组件必须提供这两个方法的实现，
+ * 供其父组件调用，以实现对其进行启动/关闭操作。其他的3个方法addLifecycleListener
+ * 等，都是与事件监听器相关的。Lifecycle实例可以出发的6个事件都是以Lifecycle接口的
+ * 公共静态final字符串表示。
+ */
 public interface Lifecycle {
 
 

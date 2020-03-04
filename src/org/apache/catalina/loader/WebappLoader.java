@@ -211,6 +211,8 @@ public class WebappLoader
      * The Java class name of the ClassLoader implementation to be used.
      * This class should extend WebappClassLoader, otherwise, a different
      * loader implementation must be used.
+     *
+     * loaderClass可使用自定义类加载器
      */
     private String loaderClass =
         "org.apache.catalina.loader.WebappClassLoader";
@@ -650,6 +652,7 @@ public class WebappLoader
         // Construct a class loader based on our current repositories list
         try {
 
+            // 1、创建一个类加载器
             classLoader = createClassLoader();
             classLoader.setResources(container.getResources());
             classLoader.setDebug(this.debug);
@@ -660,9 +663,12 @@ public class WebappLoader
             }
 
             // Configure our repositories
+            // 2、设置仓库
             setRepositories();
+            // 3、设置类路径
             setClassPath();
 
+            // 4、配置访问权限
             setPermissions();
 
             if (classLoader instanceof Lifecycle)
@@ -683,6 +689,7 @@ public class WebappLoader
         if (reloadable) {
             log(sm.getString("webappLoader.reloading"));
             try {
+                // 5、启动一个新线程来支持重新载入
                 threadStart();
             } catch (IllegalStateException e) {
                 throw new LifecycleException(e);
@@ -762,6 +769,8 @@ public class WebappLoader
 
     /**
      * Create associated classLoader.
+     *
+     * 自定义类加载器需要继承自WebappClassLoader
      */
     private WebappClassLoader createClassLoader()
         throws Exception {
@@ -849,6 +858,9 @@ public class WebappLoader
 
     /**
      * Configure associated class loader permissions.
+     *
+     * 会为类载入器设置访问相关目录的权限，例如，只能访问WEB-INF/classes和WEB-INF/1ib
+     * 和目录。若是没有使用安全管理器，则setPermissions()方法只是简单地返回，什么也不做
      */
     private void setPermissions() {
 
@@ -954,6 +966,9 @@ public class WebappLoader
     /**
      * Configure the repositories for our class loader, based on the
      * associated Context.
+     *
+     * WEB-INF/cIasses目录被传入到类载入器的addRepository()方法
+     * 中，而WEB-INF/lib目录被传入到类载入器的setJarPath()方法中
      */
     private void setRepositories() {
 
@@ -1092,6 +1107,8 @@ public class WebappLoader
     /**
      * Set the appropriate context attribute for our class path.  This
      * is required only because Jasper depends on it.
+     *
+     * setClassPath()方法会在servlet上下文中为Jasper JSP编译器设置一个字符串形式的属性来指明类路径信息
      */
     private void setClassPath() {
 

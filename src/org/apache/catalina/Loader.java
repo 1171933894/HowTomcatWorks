@@ -99,6 +99,21 @@ import java.beans.PropertyChangeListener;
  * @version $Revision: 1.6 $ $Date: 2002/09/19 22:55:47 $
  */
 
+/**
+ * Tomcat的载入器通常会与一个Context级别的servlet容器相关联，
+ * Loader接口的getContainer()方法和setContainer()方法用
+ * 来将载入器与某个servlet容器相关联。
+ *
+ * Loader接口使用modified()方法来支持类的自动重载。当返回true，
+ * 才能提供自动重载的支持。但是载入器类本身并不能自动重载。需要调
+ * 用Context接口的reload()方法来实现。setReloadable()方法
+ * 和getReloadable()方法，用来指明是否支持载入器的自动重载。在
+ * StandardContext类，默认禁用了自动重载。要启用，需要在server.xml
+ * 文件中添加一个Context元素，如：
+ * <Context path="" docBase="" debug="0" reloadable="true"/>
+ * 此外，载入器的实现会指明是否要委托给一个父类载入器。为此，Loader
+ * 接口中声明了getDelegate()方法和setDelegate()方法
+ */
 public interface Loader {
 
 
