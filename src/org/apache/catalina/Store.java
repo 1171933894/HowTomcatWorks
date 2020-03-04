@@ -80,6 +80,12 @@ import java.io.IOException;
  * @version $Revision: 1.4 $ $Date: 2001/07/22 20:13:30 $
  */
 
+/**
+ * save()方法用于将指定的Session对象储存到某种持久化存储器中。
+ * 而load()方法会从存储器中，依据Session对象的标识符将该Session
+ * 对象载入到内存中。keys()方法会以字符串数组的形式返回所有Session
+ * 对象的标识符。
+ */
 public interface Store {
 
 

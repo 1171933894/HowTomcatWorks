@@ -826,6 +826,8 @@ public class StandardManager
 
     /**
      * The background thread that checks for session timeouts and shutdown.
+     *
+     * 专门线程来负责销毁那些已经失效的Session对象
      */
     public void run() {
 

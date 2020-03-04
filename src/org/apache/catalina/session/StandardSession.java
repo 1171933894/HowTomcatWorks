@@ -126,6 +126,8 @@ class StandardSession
     /**
      * Construct a new Session associated with the specified Manager.
      *
+     * 接受Manger接口的一个实例，迫使一个Session对象必须拥有一个Session管理器实例
+     *
      * @param manager The manager with which this Session is associated
      */
     public StandardSession(Manager manager) {

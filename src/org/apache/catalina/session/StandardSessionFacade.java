@@ -78,6 +78,11 @@ import javax.servlet.http.HttpSessionContext;
  * @version $Revision: 1.1 $ $Date: 2001/05/14 04:07:55 $
  */
 
+/**
+ * 门面模式：该类仅仅实现了HttpSession接口中的方法，这样，Servlet
+ * 程序员就不能将HttpSerssion对象向下转换为StandardSession类型，
+ * 也阻止了servlet程序员访问一些敏感的方法。
+ */
 public class StandardSessionFacade
     implements HttpSession {
 

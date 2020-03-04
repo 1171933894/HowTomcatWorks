@@ -141,6 +141,10 @@ public final class DistributedManager extends PersistentManagerBase {
     /**
      * Create a Session and replicate it in our Cluster
      *
+     * 调用超类的createSession方法来为自身创建一个Session对象。
+     * 然后，它使用ClusterSender实例，以字节数组的形式将该Session
+     * 对象发送到集群中的其他节点。
+     *
      * @return The newly created Session
      */
     public Session createSession() {
@@ -248,6 +252,9 @@ public final class DistributedManager extends PersistentManagerBase {
 
     /**
      * The background thread that checks for session timeouts and shutdown.
+     *
+     * DistributedManager类还实现了Runnable接口，通过一个专门的线程来检查
+     * Session对象是否过期，并从集群中的其他节点上接收消息。
      */
     public void run() {
         // Loop until the termination semaphore is set
