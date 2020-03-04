@@ -29,6 +29,7 @@ public class SimpleContextMapper implements Mapper {
     return null;
   }
 
+  // setProtocol方法可以指定该映射器负责处理那种协议
   public void setProtocol(String protocol) {
   }
 
