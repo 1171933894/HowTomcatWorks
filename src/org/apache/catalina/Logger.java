@@ -81,12 +81,12 @@ import java.beans.PropertyChangeListener;
 public interface Logger {
 
 
-    // ----------------------------------------------------- Manifest Constants
+    // ----------------------------------------------------- Manifest（清单） Constants
 
 
     /**
-     * Verbosity level constants for log messages that may be filtered
-     * by the underlying logger.
+     * Verbosity（冗长） level constants for log messages that may be filtered
+     * by the underlying（潜在的） logger.
      */
 
     public static final int FATAL = Integer.MIN_VALUE;
@@ -127,7 +127,7 @@ public interface Logger {
 
     /**
      * Return the verbosity level of this logger.  Messages logged with a
-     * higher verbosity than this level will be silently ignored.
+     * higher verbosity than this level will be silently（默默地） ignored.
      */
     public int getVerbosity();
 

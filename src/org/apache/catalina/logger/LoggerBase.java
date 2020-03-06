@@ -76,7 +76,7 @@ import org.apache.catalina.Logger;
 
 
 /**
- * Convenience base class for <b>Logger</b> implementations.  The only
+ * Convenience（方便） base class for <b>Logger</b> implementations.  The only
  * method that must be implemented is <code>log(String msg)</code>, plus
  * any property setting and lifecycle methods required for configuration.
  *
@@ -118,6 +118,8 @@ public abstract class LoggerBase
 
     /**
      * The verbosity level for above which log messages may be filtered.
+     *
+     * 可以过滤日志消息的详细级别。
      */
     protected int verbosity = ERROR;
 
@@ -274,7 +276,7 @@ public abstract class LoggerBase
 
 
     /**
-     * Writes an explanatory message and a stack trace for a given
+     * Writes an explanatory(说明) message and a stack trace for a given
      * <code>Throwable</code> exception to the servlet log file.  The name
      * and type of the servlet log file is specific to the servlet container,
      * usually an event log.  This message will be logged unconditionally.
