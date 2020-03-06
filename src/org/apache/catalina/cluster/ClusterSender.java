@@ -68,7 +68,7 @@ import org.apache.catalina.Logger;
 /**
  * This class is responsible for sending outgoing packets to a Cluster.
  * Different Implementations may use different protocol to
- * communicate within the Cluster.
+ * communicate(沟通) within the Cluster.
  *
  * @author Bip Thelin
  * @version $Revision: 1.2 $, $Date: 2001/07/22 20:25:06 $

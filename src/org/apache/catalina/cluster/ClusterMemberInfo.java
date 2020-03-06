@@ -68,7 +68,7 @@ import org.apache.catalina.util.ServerInfo;
 
 /**
  * Class that represents a member in a Cluster, keeps information
- * that can be used when implementing Classes thats utilizing a Cluster.
+ * that can be used when implementing Classes thats utilizing(利用) a Cluster.
  *
  * @author Bip Thelin
  * @version $Revision: 1.4 $
