@@ -66,7 +66,7 @@ package org.apache.catalina.loader;
 
 
 /**
- * Internal interface that <code>ClassLoader</code> implementations may
+ * Internal（内部） interface that <code>ClassLoader</code> implementations may
  * optionally implement to support the auto-reload functionality of
  * the classloader associated with the context.
  *
