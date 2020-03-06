@@ -207,6 +207,8 @@ public interface Host extends Container {
      * Return the Context that would be used to process the specified
      * host-relative request URI, if any; otherwise return <code>null</code>.
      *
+     * 该方法返回一个用来处理引入的HTTP请求的Context容器的实例。
+     *
      * @param uri Request URI to be mapped
      */
     public Context map(String uri);
