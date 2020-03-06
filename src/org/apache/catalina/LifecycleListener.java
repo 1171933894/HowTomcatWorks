@@ -77,7 +77,7 @@ public interface LifecycleListener {
 
 
     /**
-     * Acknowledge the occurrence of the specified event.
+     * Acknowledge(承认) the occurrence of the specified event.
      *
      * @param event LifecycleEvent that has occurred
      */

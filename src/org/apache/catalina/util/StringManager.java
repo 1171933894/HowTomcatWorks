@@ -63,7 +63,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
- * An internationalization / localization helper class which reduces
+ * An internationalization(国际化) / localization(本地化) helper class which reduces
  * the bother of handling ResourceBundles and takes care of the
  * common cases of message formating which otherwise require the
  * creation of Object arrays and such.

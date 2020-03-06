@@ -71,7 +71,7 @@ import org.apache.catalina.LifecycleListener;
 
 
 /**
- * Support class to assist in firing LifecycleEvent notifications to
+ * Support class to assist(协助) in firing LifecycleEvent notifications to
  * registered LifecycleListeners.
  *
  * @author Craig R. McClanahan
