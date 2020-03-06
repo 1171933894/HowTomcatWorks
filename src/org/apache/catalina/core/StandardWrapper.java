@@ -443,6 +443,9 @@ public final class StandardWrapper
     /**
      * Set the parent Container of this Wrapper, but only if it is a Context.
      *
+     * Wrapper的父容器只能是Context类的实现，若是在调用Wrapper实例的setParent()方法
+     * 时传入了一个非Context类型的容器，会抛出java.lang.IllegalArgumentException。
+     *
      * @param container Proposed parent Container
      */
     public void setParent(Container container) {
@@ -559,6 +562,9 @@ public final class StandardWrapper
     /**
      * Refuse to add a child Container, because Wrappers are the lowest level
      * of the Container hierarchy.
+     *
+     * Wrapper实例代表一个servlet实例，因此，Wrapper实例不能再有子容器，
+     * 不应该再调用其addChild()方法，否则抛出java.lang.IllegalStateException异常。
      *
      * @param child Child container to be added
      */
