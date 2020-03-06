@@ -90,6 +90,15 @@ final class StandardWrapperValve
      * @exception IOException if an input/output error occurred
      * @exception ServletException if a servlet error occurred
      */
+    /**
+     * invoke()方法实现会执行以下几个操作：
+     * 1）调用StandardWrapper实例的allocate()方法获取该StandardWrapper实例所代表的servlet实例。
+     * 2）调用私有方法createFilterChain()，创建过滤器链。
+     * 3）调用过滤器联链的doFilter()方法，其中包括调用servlet实例的service()方法。
+     * 4）是否过滤器链。
+     * 5）调用Wrapper实例的deallocate()方法。
+     * 6）若该servlet类再也不会被使用到，则调用Wrapper实例的unload()方法。
+     */
     public void invoke(Request request, Response response,
                        ValveContext valveContext)
         throws IOException, ServletException {
