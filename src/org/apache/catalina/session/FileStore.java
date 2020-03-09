@@ -94,6 +94,10 @@ import org.apache.catalina.util.CustomObjectInputStream;
  * @version $Revision: 1.7 $ $Date: 2002/03/18 18:56:21 $
  */
 
+/**
+ * FileStore会将Session对象存储到某个文件中。文件名会使用Session对象
+ * 的标识符再加上一个后缀".session"构成。调用setDirectory方法修目录。
+ */
 public final class FileStore
     extends StoreBase implements Store {
 
@@ -429,7 +433,7 @@ public final class FileStore
             return (this.directoryFile);
         }
         File file = new File(this.directory);
-        if (!file.isAbsolute()) {
+        if (!file.isAbsolute()) {// 判断一个文件类对象的路径是否为绝对路径，是则返回true;否则返回false
             Container container = manager.getContainer();
             if (container instanceof Context) {
                 ServletContext servletContext =

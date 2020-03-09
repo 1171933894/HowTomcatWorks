@@ -360,6 +360,7 @@ public abstract class StoreBase
     /**
      * The background thread that checks for session timeouts and shutdown.
      */
+    // StoreBase类使用另一个线程周期性地检查Session对象，从活动的Session的集合中移除过期的Session对象
     public void run() {
         // Loop until the termination semaphore is set
         while (!threadDone) {

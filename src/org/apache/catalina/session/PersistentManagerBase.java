@@ -504,8 +504,11 @@ public abstract class PersistentManagerBase
      */
     public void processPersistenceChecks() {
 
+            // 最长闲置换出
             processMaxIdleSwaps();
+            // 最大数量换出
             processMaxActiveSwaps();
+            // 空闲对象备份
             processMaxIdleBackups();
 
     }
@@ -1142,6 +1145,9 @@ public abstract class PersistentManagerBase
 
     /**
      * The background thread that checks for session timeouts and shutdown.
+     */
+    /**
+     * PersistentManagerBase类实现java.lang.Runnable接口，使用一个专门的线程来执行备份和换出活动的Session对象的任务。
      */
     public void run() {
 

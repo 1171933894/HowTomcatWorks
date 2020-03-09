@@ -87,7 +87,7 @@ import org.apache.catalina.util.CustomObjectInputStream;
  * @author Bip Thelin
  * @version $Revision: 1.5 $, $Date: 2002/01/03 08:52:57 $
  */
-
+// 该类用于两个或多个节点的集群环境。一个节点表示一台Tomcat服务器。
 public final class DistributedManager extends PersistentManagerBase {
 
 
@@ -195,6 +195,7 @@ public final class DistributedManager extends PersistentManagerBase {
     /**
      * Called from our background thread to process new received Sessions
      *
+     * 调用处理Session的processClusterReceiver方法来创建来自集群中其他节点的消息。
      */
     public void processClusterReceiver() {
         Object[] objs = clusterReceiver.getObjects();
@@ -253,8 +254,7 @@ public final class DistributedManager extends PersistentManagerBase {
     /**
      * The background thread that checks for session timeouts and shutdown.
      *
-     * DistributedManager类还实现了Runnable接口，通过一个专门的线程来检查
-     * Session对象是否过期，并从集群中的其他节点上接收消息。
+     * DistributedManager类还实现了Runnable接口，通过一个专门的线程来检查Session对象是否过期，并从集群中的其他节点上接收消息。
      */
     public void run() {
         // Loop until the termination semaphore is set

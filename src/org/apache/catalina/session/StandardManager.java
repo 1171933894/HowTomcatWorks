@@ -104,6 +104,11 @@ import org.apache.catalina.util.LifecycleSupport;
  * @version $Revision: 1.19 $ $Date: 2002/06/09 02:19:43 $
  */
 
+/**
+ * important note: <br/>
+ * 1）stop方法会调用unload方法，将有效的Session对象序列化到文件中。而start方法会调用load方法重新载入内存。
+ * 2）Session管理器还负责销毁那些已经失效的Session对象（专门线程来完成）。
+ */
 public class StandardManager
     extends ManagerBase
     implements Lifecycle, PropertyChangeListener, Runnable {
@@ -361,7 +366,7 @@ public class StandardManager
         Loader loader = null;
         ClassLoader classLoader = null;
         try {
-            fis = new FileInputStream(file.getAbsolutePath());
+            fis = new FileInputStream(file.getAbsolutePath()/*绝对路径*/);
             BufferedInputStream bis = new BufferedInputStream(fis);
             if (container != null)
                 loader = container.getLoader();

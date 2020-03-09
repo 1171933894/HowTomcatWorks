@@ -78,7 +78,7 @@ package org.apache.catalina.session;
  * @version $Revision: 1.10 $
  * @author Kief Morris (kief@kief.com)
  */
-
+// 继承PersistentManagerBase类，并没有添加其他的方法，只是多了两个属性。
 public final class PersistentManager extends PersistentManagerBase {
 
 

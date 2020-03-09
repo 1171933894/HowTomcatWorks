@@ -92,7 +92,7 @@ import org.apache.catalina.util.CustomObjectInputStream;
  * @author Bip Thelin
  * @version $Revision: 1.6 $, $Date: 2002/09/20 14:05:14 $
  */
-
+// JDBCStore类将Session对象通过JDBC存入数据库中。因此，为了使用JDBCStore，需要设置driverName和connectionUrl
 public class JDBCStore
     extends StoreBase implements Store {
 
