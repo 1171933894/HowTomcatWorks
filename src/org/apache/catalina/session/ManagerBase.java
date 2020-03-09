@@ -785,7 +785,7 @@ public abstract class ManagerBase implements Manager {
      */
     void recycle(Session session) {
 
-        synchronized (recycled) {
+        synchronized (recycled/*回收*/) {
             recycled.add(session);
         }
 

@@ -1071,6 +1071,16 @@ public class HttpRequestBase
     public HttpSession getSession(boolean create) {
         if( System.getSecurityManager() != null ) {
             PrivilegedGetSession dp = new PrivilegedGetSession(create);
+            // AccessController 类用于与访问控制相关的操作和决定。
+            /**
+             * 可以将调用方标记为享有“特权”。在做访问控制决定时，如果
+             * 遇到通过调用不带上下文参数（请参阅下文，以获取关于上下
+             * 文参数的信息）的 doPrivileged 标记为“特权”的调用方，
+             * 则 checkPermission 方法将停止检查。如果该调用方的
+             * 域具有指定的权限，则不进行进一步检查，并且 checkPermission
+             * 正常返回，指示允许所请求的访问。如果该域不具有指定的权
+             * 限，则通常抛出异常。 
+             */
             return (HttpSession)AccessController.doPrivileged(dp);
         }
         return doGetSession(create);
@@ -1109,7 +1119,7 @@ public class HttpRequestBase
             }
         }
 
-        // Create a new session if requested and the response is not committed
+        // Create a new session if requested and the response is not committed(承诺)
         if (!create)
             return (null);
         if ((context != null) && (response != null) &&

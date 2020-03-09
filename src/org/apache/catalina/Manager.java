@@ -89,6 +89,13 @@ import java.io.IOException;
  * @version $Revision: 1.6 $ $Date: 2002/09/19 22:55:47 $
  */
 
+/**
+ * 该组件用来管理建立的Session对象，需要与一个Context容器相关联。
+ * 主要负责创建、更新、销毁Session对象，返回一个有效的Session对象。
+ *
+ * servlet实例可以通过HttpServletRequest接口的getSession方法
+ * 来获取一个Session对象。
+ */
 public interface Manager {
 
 

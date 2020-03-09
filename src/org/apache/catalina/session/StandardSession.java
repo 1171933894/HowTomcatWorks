@@ -116,6 +116,9 @@ import org.apache.catalina.util.StringManager;
  * @version $Revision: 1.31 $ $Date: 2002/07/23 12:49:11 $
  */
 
+/**
+ * 实现Serializable接口可以序列化Session对象。
+ */
 class StandardSession
     implements HttpSession, Session, Serializable {
 
@@ -533,6 +536,7 @@ class StandardSession
      * Return the <code>HttpSession</code> for which this object
      * is the facade.
      */
+    // getSession方法会通过传入一个自身实例来创建StandardSessionFacade类的实例
     public HttpSession getSession() {
 
         if (facade == null)
@@ -607,7 +611,7 @@ class StandardSession
      * Perform the internal processing required to invalidate this session,
      * without triggering an exception if the session has already expired.
      *
-     * @param notify Should we notify listeners about the demise of
+     * @param notify Should we notify listeners about the demise(灭亡) of
      *  this session?
      */
     public void expire(boolean notify) {
@@ -616,9 +620,11 @@ class StandardSession
         if (expiring)
             return;
         expiring = true;
+        // 1、将Session对象valid设置为false
         setValid(false);
 
         // Remove this session from our manager's active sessions
+        // 2、在manange中移除该session
         if (manager != null)
             manager.remove(this);
 

@@ -79,6 +79,13 @@ import javax.servlet.http.HttpSession;
  * @version $Revision: 1.5 $ $Date: 2001/07/31 02:00:02 $
  */
 
+/**
+ * important note:<br/>
+ * 1）可以使用getManange方法或setManange方法将Session实例和某个Session管理器相关联。
+ * 2）可以通过setId方法和getId方法来访问该Session标识符。
+ * 3）可以调用setValid方法来设置或重置Session对象有效性。
+ * 4）Session管理器会调用expire方法设置过期，也可以调用getSession方法获取一个经过外观类包装的HttpSession对象。
+ */
 public interface Session {
 
 
