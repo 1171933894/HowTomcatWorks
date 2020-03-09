@@ -159,6 +159,7 @@ public final class LifecycleSupport {
 
         LifecycleEvent event = new LifecycleEvent(lifecycle, type, data);
         LifecycleListener interested[] = null;
+        // 复制事件监听器数组。然后调用每个成员方法。这样做是为了防止并发
         synchronized (listeners) {
             interested = (LifecycleListener[]) listeners.clone();
         }
