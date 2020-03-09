@@ -177,6 +177,8 @@ public class StandardContext
 
     /**
      * The application available flag for this Context.
+     *
+     * 该属性表明了StandardContext对象是否可用，如果StandardContext启动失败，那么available会被设置为false。
      */
     private boolean available = false;
 
@@ -196,6 +198,8 @@ public class StandardContext
 
     /**
      * The "correctly configured" flag for this Context.
+     *
+     * 该变量表明StandardContext实例是否正常设置。如果配置失败，那么StandardContext实例会拒绝启动，无法为HTTP请求提供服务。
      */
     private boolean configured = false;
 
