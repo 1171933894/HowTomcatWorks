@@ -86,6 +86,10 @@ import org.apache.catalina.util.StringManager;
  * @version $Revision: 1.8 $ $Date: 2002/06/09 02:19:43 $
  */
 
+/**
+ * FileLogger从servlet容器中接收到的日志消息写到一个文件中，并且可以选择是否要为每条消息添加时间戳。
+ * 当该类首次被实例化时，会创建一个日志文件，文件名包含当日的日期信息。若日志发生了变化，则创建一个新文件。
+ */
 public class FileLogger
     extends LoggerBase
     implements Lifecycle {
@@ -288,6 +292,7 @@ public class FileLogger
 
         // Log this message, timestamped if necessary
         if (writer != null) {
+            // 根据timestamp值，判断是否日志消息前需要添加时间戳
             if (timestamp) {
                 writer.println(tsString + " " + msg);
             } else {
@@ -414,6 +419,7 @@ public class FileLogger
         lifecycle.fireLifecycleEvent(STOP_EVENT, null);
         started = false;
 
+        // 关闭流
         close();
 
     }

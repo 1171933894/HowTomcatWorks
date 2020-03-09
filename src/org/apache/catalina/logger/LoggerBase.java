@@ -316,6 +316,7 @@ public abstract class LoggerBase
      */
     public void log(String message, int verbosity) {
 
+        // 只哟当传入的日志等级比当前实例中verbosity变量指定的等级低时，才会调用重置方法log来记录日志
         if (this.verbosity >= verbosity)
             log(message);
 

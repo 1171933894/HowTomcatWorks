@@ -78,6 +78,10 @@ import java.beans.PropertyChangeListener;
  * @version $Revision: 1.3 $ $Date: 2001/07/22 20:13:30 $
  */
 
+/**
+ * important note: <br/>
+ * 1）setVerbosity方法来设置日志级别
+ */
 public interface Logger {
 
 
@@ -199,6 +203,7 @@ public interface Logger {
      *  written to the log file
      * @param verbosity Verbosity level of this message
      */
+    // 该方法接受一个日志级别参数，如果参数的日志级别的数字比该日志记录器实例中设定的等级低，才会记录该条消息
     public void log(String message, int verbosity);
 
 
