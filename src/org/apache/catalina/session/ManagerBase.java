@@ -90,7 +90,7 @@ import org.apache.catalina.util.StringManager;
  * @author Craig R. McClanahan
  * @version $Revision: 1.12 $ $Date: 2002/09/19 22:55:48 $
  */
-
+// ManagerBase类是一个抽象类，所有Session管理器组件都会 继承此类。
 public abstract class ManagerBase implements Manager {
 
 
@@ -200,6 +200,9 @@ public abstract class ManagerBase implements Manager {
     /**
      * The set of currently active Sessions for this Manager, keyed by
      * session identifier.
+     */
+    /**
+     * 某个Context容器的Session管理器会管理该Context容器中所有活动的Session对象。
      */
     protected HashMap sessions = new HashMap();
 
@@ -526,6 +529,7 @@ public abstract class ManagerBase implements Manager {
      *
      * @param session Session to be added
      */
+    // 将一个Session对象添加到HashMap变量sessions中
     public void add(Session session) {
 
         synchronized (sessions) {
@@ -560,6 +564,7 @@ public abstract class ManagerBase implements Manager {
     public Session createSession() {
 
         // Recycle or create a Session instance
+        // 从可用session对象中获取一个再用
         Session session = null;
         synchronized (recycled) {
             int size = recycled.size();
@@ -642,6 +647,7 @@ public abstract class ManagerBase implements Manager {
      *
      * @param session Session to be removed
      */
+    // 将一个对象从HashMap变量sessions中移除
     public void remove(Session session) {
 
         synchronized (sessions) {

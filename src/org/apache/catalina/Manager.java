@@ -95,6 +95,14 @@ import java.io.IOException;
  *
  * servlet实例可以通过HttpServletRequest接口的getSession方法
  * 来获取一个Session对象。
+ *
+ * 该接口重要方法如下：<br/>
+ * 1）提供了getContainer方法和setContainer方法，以便将一个Manange实现与一个Context容器相关联。
+ * 2）createSession方法用来创建一个Session实例。
+ * 3）add方法会将一个Session实例添加到Session池中。
+ * 4）remove方法会将一个Session实例从Session池中移除。
+ * 5）getMaxInactiveInterval方法和setMaxInactiveInterval方法用来获取或设置一个时间长度，单位为秒。
+ * 6）load方法和unload方法用来将Session对象持久化到辅助存储器中。unload方法会将当前活动Session对象存储到Manange实现指定的介质中，而load方法会重新载入到内存中。
  */
 public interface Manager {
 
