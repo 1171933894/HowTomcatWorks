@@ -100,6 +100,11 @@ import java.beans.PropertyChangeListener;
  */
 
 /**
+ * 在Tomcat要使用自定义类载入器的原因为:<br/>
+ * 1）为了在载入类中指定某些规则
+ * 2）为了缓存已经载入的类
+ * 3）为了实现类的预载入，方便使用
+ *
  * Tomcat的载入器通常会与一个Context级别的servlet容器相关联，
  * Loader接口的getContainer()方法和setContainer()方法用
  * 来将载入器与某个servlet容器相关联。
@@ -113,6 +118,9 @@ import java.beans.PropertyChangeListener;
  * <Context path="" docBase="" debug="0" reloadable="true"/>
  * 此外，载入器的实现会指明是否要委托给一个父类载入器。为此，Loader
  * 接口中声明了getDelegate()方法和setDelegate()方法
+ *
+ * 载入器的实现会指明是否要委托给一个父类载入器。该接口中声明了getDelegate()
+ * 和setDelegate()方法
  */
 public interface Loader {
 

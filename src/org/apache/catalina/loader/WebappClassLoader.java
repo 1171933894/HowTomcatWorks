@@ -1310,7 +1310,8 @@ public class WebappClassLoader
             throw new ClassNotFoundException(name);
         }
 
-        // (0) Check our previously loaded local class cache
+        // (0) Check our previously(以前) loaded local class cache
+        // 因为所有已经载入的类都会缓存起来，所以载入类时要先检查本地缓存
         clazz = findLoadedClass0(name);
         if (clazz != null) {
             if (debug >= 3)
@@ -1321,6 +1322,7 @@ public class WebappClassLoader
         }
 
         // (0.1) Check our previously loaded class cache
+        // 若本地缓存中没有，则检查上一层缓存，调用ClassLoader类的findLoadedClass方法
         clazz = findLoadedClass(name);
         if (clazz != null) {
             if (debug >= 3)
@@ -1332,6 +1334,7 @@ public class WebappClassLoader
 
         // (0.2) Try loading the class with the system class loader, to prevent
         //       the webapp from overriding J2SE classes
+        // 若两个缓存都没有，则使用系统的类载入器进行加载，防止web应用程序中的类覆盖J2EE的类
         try {
             clazz = system.loadClass(name);
             if (clazz != null) {
@@ -1344,6 +1347,7 @@ public class WebappClassLoader
         }
 
         // (0.5) Permission to access this class when using a SecurityManager
+        // 若启用了securityManager，则检查是否允许载入该类。如果该类禁止载入，抛出异常
         if (securityManager != null) {
             int i = name.lastIndexOf('.');
             if (i >= 0) {
@@ -1363,10 +1367,12 @@ public class WebappClassLoader
         boolean delegateLoad = delegate || filter(name);
 
         // (1) Delegate to our parent if requested
+        // 若打开标志位delegate，或者待载入的类是属于包触发器中的报名，则调用父载入器来载入相关的类。
         if (delegateLoad) {
             if (debug >= 3)
                 log("  Delegating to parent classloader");
             ClassLoader loader = parent;
+            // 如果父类载入器为null，则使用系统的类载入器
             if (loader == null)
                 loader = system;
             try {
@@ -1384,6 +1390,7 @@ public class WebappClassLoader
         }
 
         // (2) Search local repositories
+        // 从当前仓库中载入相关的类
         if (debug >= 3)
             log("  Searching local repositories");
         try {
@@ -1399,11 +1406,13 @@ public class WebappClassLoader
             ;
         }
 
-        // (3) Delegate to parent unconditionally
+        // (3) Delegate to parent unconditionally(无条件地)
+        // 若当前仓库中没有需要的类，且标志位关闭，则使用父类载入器。
         if (!delegateLoad) {
             if (debug >= 3)
                 log("  Delegating to parent classloader");
             ClassLoader loader = parent;
+            // 若父类载入器为null，则使用系统的类载入器进行加载
             if (loader == null)
                 loader = system;
             try {
@@ -1421,6 +1430,7 @@ public class WebappClassLoader
         }
 
         // This class was not found
+        // 若仍未找到需要的类，则抛出异常
         throw new ClassNotFoundException(name);
 
     }
