@@ -73,6 +73,9 @@ package org.apache.catalina;
  * @version $Revision: 1.3 $ $Date: 2001/07/22 20:13:30 $
  */
 
+/**
+ * 阈可以选择是否实现Contained接口，该接口的实现类可以通过接口中的方法至多与一个servlet容器相关联
+ */
 public interface Contained {
 
 

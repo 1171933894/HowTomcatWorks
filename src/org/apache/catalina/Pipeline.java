@@ -89,6 +89,11 @@ import javax.servlet.ServletException;
  * @version $Revision: 1.4 $ $Date: 2001/07/22 20:13:30 $
  */
 
+/**
+ * servlet容器调用invoke方法来开始调用管道中的阈和基础阈。通过调用Pipeline接口的addValue方法，
+ * 可以向管道中添加新的阈，同样，也可以调用removeValue方法从管道中删除某个阈。最后，调用setBasic
+ * 方法将基础阈值设置到管道中，调用其getBasic方法则可以获取基础阈。
+ */
 public interface Pipeline {
 
 
