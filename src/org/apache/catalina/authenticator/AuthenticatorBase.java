@@ -391,7 +391,7 @@ public abstract class AuthenticatorBase
 
 
     /**
-     * Enforce the security restrictions in the web application deployment
+     * Enforce（执行） the security restrictions（限制） in the web application deployment
      * descriptor of our associated Context.
      *
      * @param request Request to be processed
