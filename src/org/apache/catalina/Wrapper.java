@@ -93,6 +93,11 @@ import javax.servlet.UnavailableException;
  * @version $Revision: 1.5 $ $Date: 2001/07/22 20:13:30 $
  */
 
+/**
+ * Wrapper接口继承自Container接口，又添加了一些额外的方法。Wrapper接口的实现类要负责管理其基础
+ * servlet类的serlvet生命周期。因为Wrapper已经是最低级的servlet容器了，因此不能再向其中添加子
+ * 容器，即addChild方法被调用，直接抛出异常。
+ */
 public interface Wrapper extends Container {
 
 
@@ -135,7 +140,7 @@ public interface Wrapper extends Container {
 
 
     /**
-     * Return the load-on-startup order value (negative value means
+     * Return the load-on-startup order value (negative（负） value means
      * load on first call).
      */
     public int getLoadOnStartup();

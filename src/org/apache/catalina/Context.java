@@ -101,6 +101,9 @@ import org.apache.catalina.util.CharsetMapper;
  * @version $Revision: 1.21 $ $Date: 2002/05/12 01:22:18 $
  */
 
+/**
+ * Context接口的实例表示一个Web应用程序，一个Context实例可以有一个或多个Wrapper实例作为其子容器。
+ */
 public interface Context extends Container {
 
 

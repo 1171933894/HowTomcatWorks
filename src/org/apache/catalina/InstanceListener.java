@@ -66,7 +66,7 @@ package org.apache.catalina;
 
 
 /**
- * Interface defining a listener for significant events related to a
+ * Interface defining a listener for significant（重要的） events related to a
  * specific servlet instance, rather than to the Wrapper component that
  * is managing that instance.
  *
