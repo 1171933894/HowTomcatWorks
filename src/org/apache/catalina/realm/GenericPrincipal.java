@@ -79,6 +79,11 @@ import org.apache.catalina.Realm;
  * @version $Revision: 1.4 $ $Date: 2001/10/27 20:29:03 $
  */
 
+/**
+ * GenericPrincipal实例必须有1个用户名和密码对，此外，该用户名和密码对所对应的角色列表是
+ * 可选的。然后，可以调用hasRole方法，传入1个字符串形式的角色名来检查该主体对象是否拥有该指
+ * 定角色。
+ */
 public class GenericPrincipal implements Principal {
 
 

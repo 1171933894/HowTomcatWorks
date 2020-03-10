@@ -120,6 +120,7 @@ public final class LoginConfig {
      * The authentication method to use for application login.  Must be
      * BASIC, DIGEST, FORM, or CLIENT-CERT.
      */
+    // 身份验证方法
     private String authMethod = null;
 
     public String getAuthMethod() {
@@ -169,6 +170,7 @@ public final class LoginConfig {
      * The realm name used when challenging the user for authentication
      * credentials.
      */
+    // 领域对象名字
     private String realmName = null;
 
     public String getRealmName() {
