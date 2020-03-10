@@ -96,7 +96,7 @@ public interface Pipeline {
 
 
     /**
-     * <p>Return the Valve instance that has been distinguished as the basic
+     * <p>Return the Valve instance that has been distinguished（杰出的） as the basic
      * Valve for this Pipeline (if any).
      */
     public Valve getBasic();

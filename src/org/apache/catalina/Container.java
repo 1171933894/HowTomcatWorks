@@ -59,6 +59,13 @@ import javax.naming.directory.DirContext;
  * @version $Revision: 1.7 $ $Date: 2001/11/09 19:37:50 $
  */
 
+/**
+ * 在Tomcat中，共有4中类型的容器，分别是：Engine、Host、Context、Wrapper。
+ *
+ * 容器可以包含一些支持的组件，如载入器、记录器、管理器、领域和资源等，该接口提供
+ * 了getter和setter方法将这些组件与容器相关联。这些方法包含getLoader，getLogger，
+ * getManager，getRealm，getResources方法。
+*/
 public interface Container {
 
 

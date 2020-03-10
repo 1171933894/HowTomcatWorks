@@ -67,7 +67,7 @@ package org.apache.catalina;
 
 /**
  * Interface defining methods that a parent Container may implement to select
- * a subordinate Container to process a particular Request, optionally
+ * a subordinate(下属) Container to process a particular Request, optionally
  * modifying the properties of the Request to reflect the selections made.
  * <p>
  * A typical Container may be associated with a single Mapper that processes
@@ -102,7 +102,7 @@ public interface Mapper {
 
 
     /**
-     * Return the protocol for which this Mapper is responsible.
+     * Return the protocol for which this Mapper is responsible(负责任的).
      */
     public String getProtocol();
 

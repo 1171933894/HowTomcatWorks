@@ -328,7 +328,7 @@ public class StandardPipeline
 
 
     /**
-     * <p>Return the Valve instance that has been distinguished as the basic
+     * <p>Return the Valve instance that has been distinguished（使有区别） as the basic
      * Valve for this Pipeline (if any).
      */
     public Valve getBasic() {
@@ -629,16 +629,22 @@ public class StandardPipeline
          * @exception ServletException if there are no further Valves 
          *  configured in the Pipeline currently being processed
          */
+        /**
+         * 使用变量subscript和stage标明当前真正调用的阈。当第一次调用管道的invoke方法时，subscript的值为0，
+         * stage的值为1，因此，第一个阈（数组索引为0）会被调用。管道中的一个阈接收ValueContext实例，并调用
+         * invokeNext方法。这时，subscript的值变为1，这样就会调用第2个阈。
+         */
         public void invokeNext(Request request, Response response)
             throws IOException, ServletException {
 
-            int subscript = stage;
+            int subscript/*下标*/ = stage/*阶段*/;
             stage = stage + 1;
 
             // Invoke the requested Valve for the current request thread
             if (subscript < valves.length) {
                 valves[subscript].invoke(request, response, this);
             } else if ((subscript == valves.length) && (basic != null)) {
+                // 最后调用基础阈
                 basic.invoke(request, response, this);
             } else {
                 throw new ServletException
