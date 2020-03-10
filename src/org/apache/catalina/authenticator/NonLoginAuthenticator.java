@@ -130,7 +130,7 @@ public final class NonLoginAuthenticator
 
         if (debug >= 1)
             log("User authentication is not required");
-        return (true);
+        return (true);// 直接返回成功
 
 
     }
