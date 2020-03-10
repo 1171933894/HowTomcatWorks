@@ -61,12 +61,11 @@
  *
  */
 
-
 package org.apache.catalina;
 
 
 /**
- * <p>Decoupling interface which specifies that an implementing class is
+ * <p>Decoupling（解耦） interface which specifies that an implementing class is
  * associated with at most one <strong>Container</strong> instance.</p>
  *
  * @author Craig R. McClanahan

@@ -92,7 +92,7 @@ import org.apache.catalina.util.StringManager;
 /**
  * A <strong>Valve</strong> that supports a "single sign on" user experience,
  * where the security identity of a user who successfully authenticates to one
- * web application is propogated to other web applications in the same
+ * web application is propogated（根据） to other web applications in the same
  * security domain.  For successful use, the following requirements must
  * be met:
  * <ul>
@@ -298,7 +298,7 @@ public class SingleSignOn
         if (ssoId == null)
             return;
 
-        // Deregister this single session id, invalidating associated sessions
+        // Deregister（取消） this single session id, invalidating associated sessions
         deregister(ssoId);
 
     }

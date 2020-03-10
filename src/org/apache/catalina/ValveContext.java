@@ -61,7 +61,6 @@
  *
  */
 
-
 package org.apache.catalina;
 
 
@@ -70,14 +69,14 @@ import javax.servlet.ServletException;
 
 
 /**
- * <p>A <b>ValveContext</b> is the mechanism by which a Valve can trigger the
+ * <p>A <b>ValveContext</b> is the mechanism（机制） by which a Valve can trigger the
  * execution of the next Valve in a Pipeline, without having to know anything
  * about the internal implementation mechanisms.  An instance of a class
  * implementing this interface is passed as a parameter to the
  * <code>Valve.invoke()</code> method of each executed Valve.</p>
  *
  * <p><strong>IMPLEMENTATION NOTE</strong>: It is up to the implementation of
- * ValveContext to ensure that simultaneous requests being processed (by
+ * ValveContext to ensure that simultaneous（同时） requests being processed (by
  * separate threads) through the same Pipeline do not interfere with each
  * other's flow of control.</p>
  *
