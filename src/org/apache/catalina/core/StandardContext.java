@@ -131,6 +131,12 @@ import org.apache.tomcat.util.log.SystemLogHandler;
  * @version $Revision: 1.112 $ $Date: 2002/09/09 14:39:37 $
  */
 
+/**
+ * important note:<br/>
+ * 1）如果某种原因，StandardContext对象可能会启动失败，StandardContext对象的available属性会被设置为false，表明StandardContext对象是否可用。
+ * 2）StandardContext类的configured属性，表明StandardContext实例是否正确被设置。当调用StandardContext实例的start方法时，其中要做的一件事，
+ *  触发一个生命周期事件，用该事件调用监听器，对StandardContext实例进行配置。该监听器就是ContextConfig类的实例。
+ */
 public class StandardContext
     extends ContainerBase
     implements Context {
@@ -145,7 +151,8 @@ public class StandardContext
     public StandardContext() {
 
         super();
-        // 在构造函数中设置一个StandardContextValve实例作为基础阈
+        // 在构造函数中设置一个StandardContextValve实例作为基础阈，
+        // 该基础阈会处理从连接器中接收到的每个HTTP请求。
         pipeline.setBasic(new StandardContextValve());
         namingResources.setContainer(this);
 
