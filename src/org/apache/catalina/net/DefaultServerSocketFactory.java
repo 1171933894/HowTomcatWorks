@@ -144,6 +144,13 @@ public final class DefaultServerSocketFactory implements ServerSocketFactory {
            CertificateException, UnrecoverableKeyException,
            KeyManagementException {
 
+        /**
+         * 管理客户连接请求的任务是由操作系统来完成的。操作系统把这些连接请求存储在一个先进
+         * 先出的队列中。许多操作系统限定了队列的最大长度，一般为50。当队列中的连接请求达到
+         * 了队列的最大容量时，服务器进程所在的主机会拒绝新的连接请求。只有当服务器进程通过
+         * ServerSocket的accept()方法从队列中取出连接请求，使队列腾出空位时，队列才能
+         * 继续加入新的连接请求。
+         */
         return (new ServerSocket(port, backlog));
 
     }

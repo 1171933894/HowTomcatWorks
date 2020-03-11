@@ -54,6 +54,11 @@ import org.apache.catalina.net.ServerSocketFactory;
  * @version $Revision: 1.12 $ $Date: 2001/12/20 21:25:23 $
  */
 
+/**
+ * setContainer方法用于将连接器和某个servlet容器相关联。
+ * createRequest方法会为引入的Http请求创建request对象。
+ * createResponse方法会创建一个response对象。
+ */
 public interface Connector {
 
 
@@ -115,7 +120,7 @@ public interface Connector {
      * it comes in on a non-SSL port and is subject to a security constraint
      * with a transport guarantee that requires SSL.
      */
-    public int getRedirectPort();
+    public int getRedirectPort();// redirect：重定向
 
 
     /**

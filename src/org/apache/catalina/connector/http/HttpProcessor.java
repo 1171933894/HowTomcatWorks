@@ -876,8 +876,8 @@ final class HttpProcessor
      * @param socket The socket on which we are connected to the client
      */
     private void process(Socket socket) {
-        boolean ok = true;
-        boolean finishResponse = true;
+        boolean ok = true;// 表示在处理过程中是否有错误发生
+        boolean finishResponse = true;// 表示是否应该调用Response接口的finishResponse方法
         SocketInputStream input = null;
         OutputStream output = null;
 
@@ -890,7 +890,7 @@ final class HttpProcessor
             ok = false;
         }
 
-        keepAlive = true;
+        keepAlive = true;// 表示该连接是否是持久连接
 
         while (!stopped && ok && keepAlive) {
 
@@ -1076,17 +1076,20 @@ final class HttpProcessor
         while (!stopped) {
 
             // Wait for the next socket to be assigned
+            // 1、获取套接字对象
             Socket socket = await();
             if (socket == null)
                 continue;
 
             // Process the request from this socket
+            // 2、进行处理
             try {
                 process(socket);
             } catch (Throwable t) {
                 log("process.invoke", t);
             }
 
+            // 3、调用连接器方法压回栈中
             // Finish up this request
             connector.recycle(this);
 
