@@ -75,7 +75,10 @@ import javax.servlet.ServletContext;
  */
 
 /**
- *
+ * StandardWrapper实例会调用它所载入的servlet类的实例的init方法。init方法需要一个ServletConfig实例，
+ * 而StandardWrapper类本身实现了ServletConfig接口，所以，理论上StandardWrapper对象可以将自己传入init
+ * 方法。但是，StandardWrapper需要将大部分公共方法对servlet程序员隐藏起来，为了实现这个目的，StandardWrapper
+ * 类将自身实例包装成StandardWrapperFacade类的一个实例。
  */
 public final class StandardWrapperFacade
     implements ServletConfig {
