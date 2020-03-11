@@ -61,9 +61,7 @@
  *
  */
 
-
 package org.apache.catalina.core;
-
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.catalina.Container;
