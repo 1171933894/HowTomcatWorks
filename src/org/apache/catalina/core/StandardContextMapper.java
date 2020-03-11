@@ -177,6 +177,7 @@ public final class StandardContextMapper
      * @exception IllegalArgumentException if the relative portion of the
      *  path cannot be URL decoded
      */
+    // map方法返回一个Wrapper实例，用于处理请求，若找不到合适的Wrapper实例，则该方法返回null
     public Container map(Request request, boolean update) {
 
 
