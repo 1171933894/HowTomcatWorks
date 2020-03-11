@@ -1207,6 +1207,7 @@ System.out.println("after calling setWrapper");
         else if (!(parent instanceof Context))
             return (null);
         else
+            // 调用父容器的getServletContext方法返回ServletContext类的一个实例
             return (((Context) parent).getServletContext());
 
     }
