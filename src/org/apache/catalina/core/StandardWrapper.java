@@ -217,7 +217,7 @@ public final class StandardWrapper
 
 
     /**
-     * Are we unloading our servlet instance at the moment?
+     * Are we unloading our servlet instance at the moment(时刻)?
      */
     private boolean unloading = false;
 
@@ -625,7 +625,7 @@ public final class StandardWrapper
      * Allocate an initialized instance of this Servlet that is ready to have
      * its <code>service()</code> method called.  If the servlet class does
      * not implement <code>SingleThreadModel</code>, the (only) initialized
-     * instance may be returned immediately.  If the servlet class implements
+     * instance may be returned immediately(立即).  If the servlet class implements
      * <code>SingleThreadModel</code>, the Wrapper implementation must ensure
      * that this instance is not allocated again until it is deallocated by a
      * call to <code>deallocate()</code>.

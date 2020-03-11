@@ -143,6 +143,7 @@ final class StandardWrapperValve
         // Allocate a servlet instance to process this request
         try {
             if (!unavailable) {
+                // allocate方法返回请求的servlet的一个实例
                 servlet = wrapper.allocate();
             }
         } catch (ServletException e) {

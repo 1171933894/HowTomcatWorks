@@ -145,6 +145,7 @@ public class StandardContext
     public StandardContext() {
 
         super();
+        // 在构造函数中设置一个StandardContextValve实例作为基础阈
         pipeline.setBasic(new StandardContextValve());
         namingResources.setContainer(this);
 
