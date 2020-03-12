@@ -340,6 +340,7 @@ public class WebappLoader
 
         // Register with the new Container (if any)
         if ((this.container != null) && (this.container instanceof Context)) {
+            // 如果当前容器是Context容器，则调用setReloadable方法。将Context实例的reloadable属性设置给WebappLoader
             setReloadable( ((Context) this.container).getReloadable() );
             ((Context) this.container).addPropertyChangeListener(this);
         }
