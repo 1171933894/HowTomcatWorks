@@ -88,7 +88,7 @@ import org.apache.catalina.util.StringManager;
 
 
 /**
- * <p>Implementation of a Valve that handles the error dispatch (that is, will
+ * <p>Implementation of a Valve that handles the error dispatch（调度） (that is, will
  * forward to the appropriate error page if necessary).</p>
  *
  * <p>This Valve should be attached at the Host level, although it will work

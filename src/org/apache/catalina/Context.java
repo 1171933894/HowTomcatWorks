@@ -103,6 +103,7 @@ import org.apache.catalina.util.CharsetMapper;
 
 /**
  * Context接口的实例表示一个Web应用程序，一个Context实例可以有一个或多个Wrapper实例作为其子容器。
+ * Context容器的父容器通常是Host容器，也有可能是其他实现，或者如果不必要，就可以不使用父容器。
  */
 public interface Context extends Container {
 
