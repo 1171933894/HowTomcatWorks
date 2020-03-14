@@ -430,6 +430,10 @@ public class Catalina {
     /**
      * Start a new server instance.
      */
+    /**
+     * start方法会参加一个Digester实例来解析server.xml文件。同时调用Digester对象的push方法，
+     * 传入当前的Catalina对象作为参数。这样Catalina对象就成了Digester对象的内部栈中第一个对象。
+     */
     protected void start() {
 
         // Create and execute our Digester

@@ -74,6 +74,8 @@ public final class Bootstrap {
                                    "server" + File.separator + "classes");
             packed[0] = new File(getCatalinaHome(),
                                  "server" + File.separator + "lib");
+            // catalinaLoader类载入器负责载入运行Catalina servlet容器所需要的类。
+            // 包括commonLoader类载入器可以访问的所有目录中的java类。
             catalinaLoader =
                 ClassLoaderFactory.createClassLoader(unpacked, packed,
                                                      commonLoader);
@@ -82,6 +84,7 @@ public final class Bootstrap {
                                    "shared" + File.separator + "classes");
             packed[0] = new File(getCatalinaBase(),
                                  "shared" + File.separator + "lib");
+            // sharedLoader类可以载入commonLoader类载入访问目录下的类。
             sharedLoader =
                 ClassLoaderFactory.createClassLoader(unpacked, packed,
                                                      commonLoader);
