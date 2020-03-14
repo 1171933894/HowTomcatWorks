@@ -665,6 +665,7 @@ System.out.println("init");
      *
      * @param writer Writer to render to
      */
+    // 示例URL：http://localhost:8080/manager/list
     protected void list(PrintWriter writer) {
 
         if (debug >= 1)
@@ -991,6 +992,7 @@ System.out.println("init");
      * @param writer Writer to render to
      * @param path Context path of the application to be started
      */
+    // 示例URL：http://localhost:8080/manager/start?path=/admin
     protected void start(PrintWriter writer, String path) {
 
         if (debug >= 1)
@@ -1035,6 +1037,7 @@ System.out.println("init");
      * @param writer Writer to render to
      * @param path Context path of the application to be stopped
      */
+    // 示例URL：http://localhost:8080/manager/stop?path=/contextPaht
     protected void stop(PrintWriter writer, String path) {
 
         if (debug >= 1)
