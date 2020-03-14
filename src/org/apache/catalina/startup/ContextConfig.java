@@ -122,6 +122,11 @@ import org.xml.sax.SAXParseException;
  * @version $Revision: 1.66 $ $Date: 2002/06/23 20:35:30 $
  */
 
+/**
+ * important note:<br/>
+ * 1）会安装一个验证器阈和许可阈到StandardContext实例的管道对象中。
+ * 2）读取和解析默认的web.xml文件。
+ */
 public final class ContextConfig
     implements LifecycleListener {
 
