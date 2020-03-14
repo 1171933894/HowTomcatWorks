@@ -61,9 +61,7 @@
  *
  */
 
-
 package org.apache.catalina.startup;
-
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -90,7 +88,6 @@ import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.Logger;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.util.StringManager;
-
 
 /**
  * Startup event listener for a <b>Host</b> that configures the properties
@@ -350,8 +347,11 @@ public class HostConfig
                 if (hostDebug > this.debug) {
                     this.debug = hostDebug;
                 }
+                // deployXML属性表示Host实例是否要部署一个Context实例的描述
                 setDeployXML(((StandardHost) host).isDeployXML());
+                // liveDeploy指明了Host实例是否要周期性地检查一个新的部署
                 setLiveDeploy(((StandardHost) host).getLiveDeploy());
+                // unpackWARs指明了是否要将WAR文件形式的Web应用程序解压缩
                 setUnpackWARs(((StandardHost) host).isUnpackWARs());
             }
         } catch (ClassCastException e) {
@@ -402,8 +402,11 @@ public class HostConfig
             return;
         String files[] = appBase.list();
 
+        // 部署一个描述符
         deployDescriptors(appBase, files);
+        // 部署一个WAR文件
         deployWARs(appBase, files);
+        // 部署一个目录
         deployDirectories(appBase, files);
 
     }

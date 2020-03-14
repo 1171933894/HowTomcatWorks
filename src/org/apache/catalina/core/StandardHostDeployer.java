@@ -434,6 +434,7 @@ public class StandardHostDeployer implements Deployer {
      * @exception IOException if an input/output error occurs during
      *  startup
      */
+    // start方法用于启动Context实例
     public void start(String contextPath) throws IOException {
         // Validate the format and state of our arguments
         if (contextPath == null)
@@ -470,6 +471,7 @@ public class StandardHostDeployer implements Deployer {
      * @exception IOException if an input/output error occurs while stopping
      *  the web application
      */
+    // stop方法用来停止一个Context实例
     public void stop(String contextPath) throws IOException {
 
         // Validate the format and state of our arguments
