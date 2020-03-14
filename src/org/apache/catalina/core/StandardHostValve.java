@@ -151,6 +151,7 @@ final class StandardHostValve
 
         // Select the Context to be used for this Request
         StandardHost host = (StandardHost) getContainer();
+        // 调用StandardHost的map方法来获取相应的Context实例来处理HTTP请求
         Context context = (Context) host.map(request, true);
         if (context == null) {
             ((HttpServletResponse) response.getResponse()).sendError

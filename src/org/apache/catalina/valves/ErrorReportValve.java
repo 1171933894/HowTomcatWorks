@@ -90,7 +90,7 @@ import org.apache.catalina.util.StringManager;
  *
  * <p>This Valve should be attached at the Host level, although it will work
  * if attached to a Context.</p>
- * 
+ *
  * <p>HTML code from the Cocoon 2 project.</p>
  *
  * @author Remy Maucherat

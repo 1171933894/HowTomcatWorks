@@ -1154,6 +1154,7 @@ public abstract class ContainerBase
         // Notify our interested LifecycleListeners
         lifecycle.fireLifecycleEvent(BEFORE_START_EVENT, null);
 
+        // 添加默认映射器
         addDefaultMapper(this.mapperClass);
         started = true;
 
