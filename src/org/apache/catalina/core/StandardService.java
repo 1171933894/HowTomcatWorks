@@ -88,6 +88,10 @@ import org.apache.catalina.util.StringManager;
  * @version $Revision: 1.11 $ $Date: 2002/06/09 02:19:42 $
  */
 
+/**
+ * StandardService实例中有两种组件，分别是连接器和servlet容器。其中serlvet容器只有一个，
+ * 而连接器则可以有多个。多个连接器使Tomcat可以为多种不同的请求协议提供服务。
+ */
 public final class StandardService
     implements Lifecycle, Service {
 
@@ -178,6 +182,9 @@ public final class StandardService
     /**
      * Set the <code>Container</code> that handles requests for all
      * <code>Connectors</code> associated with this Service.
+     *
+     * 与服务组件相关联的servlet容器的实例将被传给每个连接器对象的setContainer()方法，
+     * 这样在服务器组件中就可以形成每个连接器和servlet容器之间的关联关系
      *
      * @param container The new Container
      */
@@ -473,6 +480,7 @@ public final class StandardService
      * @exception LifecycleException if this component detects a fatal error
      *  that prevents this component from being used
      */
+    // 负责启动被添加到该服务器组件中的连接器和servlet容器
     public void start() throws LifecycleException {
 
         // Validate and update our current component state
@@ -521,6 +529,7 @@ public final class StandardService
      * @exception LifecycleException if this component detects a fatal error
      *  that needs to be reported
      */
+    // 用于关闭与该服务器组件相关联的servlet容器和所有连接器
     public void stop() throws LifecycleException {
 
         // Validate and update our current component state

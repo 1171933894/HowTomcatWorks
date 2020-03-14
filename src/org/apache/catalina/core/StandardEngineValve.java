@@ -141,6 +141,7 @@ final class StandardEngineValve
                        ValveContext valveContext)
         throws IOException, ServletException {
         // Validate the request and response object types
+        // 验证request和reponse对象的类型
         if (!(request.getRequest() instanceof HttpServletRequest) ||
             !(response.getResponse() instanceof HttpServletResponse)) {
             return;     // NOTE - Not much else we can do generically

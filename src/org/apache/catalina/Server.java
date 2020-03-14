@@ -91,6 +91,11 @@ import org.apache.catalina.deploy.NamingResources;
  * @version $Revision: 1.10 $ $Date: 2002/03/06 06:49:10 $
  */
 
+/**
+ * shutdown属性保存了必须发送给Server实例用来关闭整个系统的关闭命名。port属性定义了服务器组件会从哪
+ * 个端口获取关闭命令。可以调用其addService方法为服务器组件添加服务组件，或通过removeService方法删
+ * 除某个服务组件。
+ */
 public interface Server {
 
 

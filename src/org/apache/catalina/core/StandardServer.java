@@ -2232,6 +2232,7 @@ public final class StandardServer
      */
     public void initialize()
     throws LifecycleException {
+        // 使用initialized来防止服务器组件初始化两次
         if (initialized)
             throw new LifecycleException (
                 sm.getString("standardServer.initialize.initialized"));
