@@ -61,9 +61,7 @@
  *
  */
 
-
 package org.apache.catalina.startup;
-
 
 import java.io.File;
 import java.io.FileInputStream;

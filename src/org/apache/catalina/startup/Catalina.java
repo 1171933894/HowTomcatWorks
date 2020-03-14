@@ -608,6 +608,9 @@ public class Catalina {
     /**
      * Shutdown hook which will perform a clean shutdown of Catalina if needed.
      */
+    /**
+     * 在Catalina实例启动时，会实例化关闭钩子，并在一个阶段将其添加到Runtime类中
+     */
     protected class CatalinaShutdownHook extends Thread {
 
         public void run() {
