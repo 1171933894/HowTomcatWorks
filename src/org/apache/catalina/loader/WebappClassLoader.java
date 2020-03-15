@@ -1298,6 +1298,16 @@ public class WebappClassLoader
      *
      * @exception ClassNotFoundException if the class was not found
      */
+    /**
+     * 如何打破双亲委派：<br/>
+     *
+     * 1）每个webapp有自己的目录和类库，比如一个webapp使用类库A1.0版本，一个webapp使用类库A2.0版本，
+     * 父类加载器加载类库A1.0版本，如果使用双亲委派，会由commonClassLoader去加载类库A1.0版本，这
+     * 样第二个webapp会有问题
+     *
+     * 2）对于一些未加载的非基础类(非Object,String等)，各个web应用自己的类加载器(WebAppClassLoader)
+     * 会优先加载，加载不到时再交给commonClassLoader走双亲委托
+     */
     public Class loadClass(String name, boolean resolve)
         throws ClassNotFoundException {
         if (debug >= 2)
